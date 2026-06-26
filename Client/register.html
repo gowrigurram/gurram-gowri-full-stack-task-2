@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box">
+
+<h2>Student Register</h2>
+
+<form id="registerForm">
+
+    <input type="text" id="FullName" placeholder="👤 Full Name" required><br><br>
+    
+    <input type="email" id="email" placeholder="📧 Email Address" required><br><br>
+    
+    <input type="text" id="Mobile" placeholder="📱 Mobile Number" required><br><br>
+
+    <input type="password" id="password" placeholder="🔒 Password" required>
+
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+        <span></span>
+        <a href="forgot-password.html" style="font-size:12px; text-decoration:none;">
+            Forgot Password?
+        </a>
+    </div>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<p id="message"></p>
+
+<p>
+    Already have an account? <a href="index.html">Login</a>
+</p>
+
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let user = {
+        name: document.getElementById("FullName").value,
+        email: document.getElementById("email").value,
+        mobile: document.getElementById("Mobile").value,
+        password: document.getElementById("password").value
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    document.getElementById("message").innerText = "Register Successful!";
+    document.getElementById("message").style.color = "green";
+});
+</script>
+
+</body>
+</html>
